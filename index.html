@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COMP721 — Web Development Revision</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Top progress line -->
+<div id="progress-line"></div>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  TOP NAVIGATION                                            -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<nav class="top-nav">
+  <div class="nav-brand">COMP<span>721</span></div>
+
+  <div class="nav-links">
+    <a class="nav-link active" href="#w1" data-week="w1">W1 — HTTP</a>
+    <a class="nav-link" href="#w2" data-week="w2">W2 — PHP</a>
+    <a class="nav-link" href="#w3" data-week="w3">W3 — PHP II</a>
+    <a class="nav-link" href="#w4" data-week="w4">W4 — Control</a>
+    <a class="nav-link" href="#w5" data-week="w5">W5 — AJAX</a>
+  </div>
+
+  <div class="nav-progress">
+    <span class="done-num" id="nav-done">0</span>
+    <span style="color: var(--dim)"> / </span>
+    <span id="nav-total">21</span>
+    <span style="color: var(--dim); font-size: 10px; margin-left: 4px;">reviewed</span>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!--  PAGE CONTENT                                              -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<div class="container">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">
+      <span>Exam Prep · Weeks 1–5</span>
+    </div>
+    <h1>
+      <span class="outline-line">WEB DEV</span>
+      <span class="accent-line">REVISION</span>
+    </h1>
+    <p class="hero-desc">
+      Every key concept from your COMP721 lectures — organised by week with code examples. Click any topic to expand it, then mark it reviewed.
+    </p>
+    <div class="hero-chips">
+      <span class="chip">PHP</span>
+      <span class="chip">MySQL</span>
+      <span class="chip">JavaScript</span>
+      <span class="chip">AJAX</span>
+      <span class="chip">JSON</span>
+      <span class="chip">HTTP</span>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!--  WEEK 1 — HTML & HTTP                                  -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="week-section" id="w1">
+
+    <div class="week-header">
+      <span class="week-bg-num">01</span>
+      <div class="week-meta">
+        <span class="week-label wk-lime">Week 1</span>
+        <span class="week-sub-label">HTML &amp; HTTP</span>
+      </div>
+      <div class="week-title">HTML &amp; HTTP</div>
+      <div class="week-divider"></div>
+    </div>
+
+    <!-- Topic: WWW -->
+    <div class="topic" id="t-www">
+      <div class="topic-head" onclick="toggle('www')">
+        <div class="topic-left">
+          <span class="topic-num">01</span>
+          <span class="topic-icon">🌐</span>
+          <span class="topic-name">The World Wide Web</span>
+        </div>
+        <span class="topic-tag">theory</span>
+        <span class="topic-chevron" id="chev-www">▾</span>
+      </div>
+      <div class="topic-body" id="body-www">
+
+        <p class="body-text">The WWW is not a simple structure — it is a <strong>complex network</strong> made up of multiple topology types simultaneously.</p>
+
+        <ul class="kp-list">
+          <li>Topology types: <strong>star-shaped, grid-shaped, tree-shaped, ring-shaped, fully-connected</strong></li>
+          <li>In practice the WWW is a complex combination of all the above</li>
+          <li><strong>Key property:</strong> a small number of <em>big nodes (hubs)</em> connect to a huge number of small nodes</li>
+          <li>This is described by a <strong>Power Law Distribution</strong> — most pages have few links; a tiny number have enormous numbers of links</li>
+          <li>The graph grows by <strong>preferential attachment</strong> — new pages tend to link to already-popular pages, making hubs even larger</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>Power Law:</strong> The probability a node has k connections ∝ k<sup>−γ</sup>. A few hubs dominate the entire network — this is why Google, Facebook, and Wikipedia get the majority of web traffic.
+        </div>
+
+        <button class="done-btn" id="done-www" onclick="markDone('www')">
+          <div class="done-circle" id="dc-www"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Architecture -->
+    <div class="topic" id="t-arch">
+      <div class="topic-head" onclick="toggle('arch')">
+        <div class="topic-left">
+          <span class="topic-num">02</span>
+          <span class="topic-icon">🏗️</span>
+          <span class="topic-name">Web Application Architecture</span>
+        </div>
+        <span class="topic-tag">architecture</span>
+        <span class="topic-chevron" id="chev-arch">▾</span>
+      </div>
+      <div class="topic-body" id="body-arch">
+
+        <div class="two-col">
+          <div class="mini-card">
+            <h4>Monolithic</h4>
+            <p>Single deployable unit. Tightly coupled. Hard to scale. Classic 3-tier: Presentation → Logic → Data.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Microservices</h4>
+            <p>Loosely coupled, independently deployable. Each service owns its own data. Easier to scale.</p>
+          </div>
+        </div>
+
+        <ul class="kp-list">
+          <li><strong>Serverless:</strong> cloud provider manages servers. Pay only when code runs. Scales instantly — ideal for event-driven workloads</li>
+          <li><strong>Edge Computing:</strong> code runs closer to the user or device — reduces latency</li>
+          <li><strong>CI (Continuous Integration):</strong> developers push code frequently; automated tests run on each push</li>
+          <li><strong>CD (Continuous Deployment):</strong> code is automatically deployed after tests pass</li>
+        </ul>
+
+        <div class="info-box"><strong>PHP Slim Framework</strong> can build REST microservices in a serverless-style architecture — as shown in lecture slides.</div>
+
+        <button class="done-btn" id="done-arch" onclick="markDone('arch')">
+          <div class="done-circle" id="dc-arch"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: HTTP -->
+    <div class="topic" id="t-http">
+      <div class="topic-head" onclick="toggle('http')">
+        <div class="topic-left">
+          <span class="topic-num">03</span>
+          <span class="topic-icon">📡</span>
+          <span class="topic-name">HTTP Protocol</span>
+        </div>
+        <span class="topic-tag">protocol</span>
+        <span class="topic-chevron" id="chev-http">▾</span>
+      </div>
+      <div class="topic-body" id="body-http">
+
+        <p class="body-text">HTTP (HyperText Transfer Protocol) is the foundation of web communication. It is a <strong>stateless, request-response</strong> protocol.</p>
+
+        <div class="table-wrap">
+          <table class="dt">
+            <tr><th>Method</th><th>Purpose</th><th>Notes</th></tr>
+            <tr><td><code>GET</code></td><td>Retrieve data</td><td>Parameters visible in URL. Not for sensitive data.</td></tr>
+            <tr><td><code>POST</code></td><td>Submit data</td><td>Parameters in request body. Used for forms &amp; file uploads.</td></tr>
+            <tr><td><code>PUT</code></td><td>Update a resource</td><td>Replaces the resource entirely.</td></tr>
+            <tr><td><code>DELETE</code></td><td>Delete a resource</td><td>Removes the specified resource.</td></tr>
+          </table>
+        </div>
+
+        <p class="body-text" style="margin-top:14px"><strong>Common HTTP Status Codes:</strong></p>
+        <div class="tag-row">
+          <span class="tag tag-g">200 OK</span>
+          <span class="tag tag-g">201 Created</span>
+          <span class="tag tag-o">301 Moved Permanently</span>
+          <span class="tag tag-r">404 Not Found</span>
+          <span class="tag tag-r">500 Internal Server Error</span>
+        </div>
+
+        <button class="done-btn" id="done-http" onclick="markDone('http')">
+          <div class="done-circle" id="dc-http"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!--  WEEK 2 — PHP BASICS                                   -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="week-section" id="w2">
+
+    <div class="week-header">
+      <span class="week-bg-num">02</span>
+      <div class="week-meta">
+        <span class="week-label wk-orange">Week 2</span>
+        <span class="week-sub-label">PHP Basics</span>
+      </div>
+      <div class="week-title">PHP Basics</div>
+      <div class="week-divider"></div>
+    </div>
+
+    <!-- Topic: PHP Intro -->
+    <div class="topic" id="t-phpintro">
+      <div class="topic-head" onclick="toggle('phpintro')">
+        <div class="topic-left">
+          <span class="topic-num">04</span>
+          <span class="topic-icon">🐘</span>
+          <span class="topic-name">PHP Introduction &amp; Syntax</span>
+        </div>
+        <span class="topic-tag">basics</span>
+        <span class="topic-chevron" id="chev-phpintro">▾</span>
+      </div>
+      <div class="topic-body" id="body-phpintro">
+
+        <ul class="kp-list">
+          <li>PHP = <strong>Hypertext Preprocessor</strong> — a server-side scripting language</li>
+          <li>PHP code executes <strong>on the web server before</strong> the page is sent to the client</li>
+          <li>PHP files use the <code>.php</code> extension</li>
+          <li>PHP code lives inside <code>&lt;?php ... ?&gt;</code> tags</li>
+          <li>Local dev environment: <strong>XAMPP</strong> (Apache + MariaDB + PHP + Perl)</li>
+          <li>AUT server: <code>webdev.aut.ac.nz</code> — accessed via RASS at <code>distance.aut.ac.nz</code></li>
+          <li><code>phpinfo();</code> — outputs full info about the PHP installation, version, server config, HTTP headers</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="kw">&lt;?php</span>
+  <span class="cm">// This is a PHP comment</span>
+  <span class="fn">echo</span> <span class="str">"&lt;p&gt;Hello, World!&lt;/p&gt;"</span>;
+  <span class="fn">phpinfo</span>();  <span class="cm">// outputs PHP info page</span>
+<span class="kw">?&gt;</span></pre>
+        </div>
+
+        <div class="highlight-box">
+          <strong>Key concept:</strong> PHP blocks execute on the server before the HTML is sent. The browser only ever sees the resulting HTML — it never sees the PHP source code.
+        </div>
+
+        <button class="done-btn" id="done-phpintro" onclick="markDone('phpintro')">
+          <div class="done-circle" id="dc-phpintro"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Variables -->
+    <div class="topic" id="t-variables">
+      <div class="topic-head" onclick="toggle('variables')">
+        <div class="topic-left">
+          <span class="topic-num">05</span>
+          <span class="topic-icon">📦</span>
+          <span class="topic-name">Variables &amp; Constants</span>
+        </div>
+        <span class="topic-tag">core</span>
+        <span class="topic-chevron" id="chev-variables">▾</span>
+      </div>
+      <div class="topic-body" id="body-variables">
+
+        <p class="body-text"><strong>Variables</strong> store values in memory. The data type is determined by the value assigned to it.</p>
+
+        <ul class="kp-list">
+          <li>Must begin with a <code>$</code> dollar sign</li>
+          <li>Can contain letters (A–Z, a–z), numbers (0–9), or underscore <code>_</code></li>
+          <li>Cannot start with a number — cannot contain spaces</li>
+          <li>Are <strong>case sensitive</strong> — <code>$name</code> and <code>$Name</code> are completely different variables</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — variables &amp; data types</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="vr">$courseName</span>   <span class="op">=</span> <span class="str">"Web Development"</span>;  <span class="cm">// string</span>
+<span class="vr">$lectureHours</span> <span class="op">=</span> <span class="nm">2</span>;                   <span class="cm">// integer</span>
+<span class="vr">$hasLabs</span>      <span class="op">=</span> <span class="kw">TRUE</span>;               <span class="cm">// boolean</span>
+<span class="vr">$avgScore</span>     <span class="op">=</span> <span class="nm">87.5</span>;               <span class="cm">// float</span>
+
+<span class="fn">echo</span> <span class="vr">$courseName</span>;  <span class="cm">// Web Development</span></pre>
+        </div>
+
+        <div class="divider"></div>
+        <p class="body-text"><strong>Constants</strong> hold values that do not change during execution. Defined with <code>define()</code>.</p>
+
+        <ul class="kp-list">
+          <li>Names use <strong>ALL UPPERCASE</strong> letters by convention</li>
+          <li>Do <strong>not</strong> begin with a <code>$</code> sign</li>
+          <li>Value can be a string, number, or Boolean</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — constants</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="fn">define</span>(<span class="str">"MAX_USERS"</span>, <span class="nm">100</span>);
+<span class="fn">define</span>(<span class="str">"SITE_NAME"</span>, <span class="str">"CabsOnline"</span>);
+<span class="fn">define</span>(<span class="str">"DEBUG_MODE"</span>, <span class="kw">FALSE</span>);
+
+<span class="fn">echo</span> MAX_USERS;   <span class="cm">// 100 — no $ sign needed</span></pre>
+        </div>
+
+        <button class="done-btn" id="done-variables" onclick="markDone('variables')">
+          <div class="done-circle" id="dc-variables"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Arrays -->
+    <div class="topic" id="t-arrays">
+      <div class="topic-head" onclick="toggle('arrays')">
+        <div class="topic-left">
+          <span class="topic-num">06</span>
+          <span class="topic-icon">📋</span>
+          <span class="topic-name">Arrays</span>
+        </div>
+        <span class="topic-tag">core</span>
+        <span class="topic-chevron" id="chev-arrays">▾</span>
+      </div>
+      <div class="topic-body" id="body-arrays">
+
+        <div class="two-col">
+          <div class="mini-card">
+            <h4>Indexed array</h4>
+            <p>Items accessed by a <strong>numeric index</strong> starting at 0. Created with <code>array()</code>.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Associative array</h4>
+            <p>Items accessed by a <strong>named string key</strong> using the <code>=&gt;</code> operator.</p>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — arrays</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="cm">// Indexed — course uses array() constructor syntax</span>
+<span class="vr">$colours</span> <span class="op">=</span> <span class="fn">array</span>(<span class="str">"red"</span>, <span class="str">"green"</span>, <span class="str">"blue"</span>);
+<span class="fn">echo</span> <span class="vr">$colours</span>[<span class="nm">0</span>]; <span class="cm">// red</span>
+
+<span class="cm">// Associative</span>
+<span class="vr">$student</span> <span class="op">=</span> <span class="fn">array</span>(<span class="str">"name"</span> <span class="op">=&gt;</span> <span class="str">"Spencer"</span>, <span class="str">"grade"</span> <span class="op">=&gt;</span> <span class="str">"A"</span>);
+<span class="fn">echo</span> <span class="vr">$student</span>[<span class="str">"name"</span>]; <span class="cm">// Spencer</span>
+
+<span class="fn">echo</span> <span class="fn">count</span>(<span class="vr">$colours</span>); <span class="cm">// 3</span></pre>
+        </div>
+
+        <ul class="kp-list">
+          <li><code>count($arr)</code> — returns total number of elements</li>
+          <li><code>array_merge($a, $b)</code> — combines; <strong>duplicate keys overwritten</strong> by second array</li>
+          <li><code>$a + $b</code> — combines; <strong>duplicate keys kept</strong> from first array</li>
+          <li><code>print_r($arr)</code> — outputs full array structure for debugging</li>
+          <li><code>sort($arr)</code> — ascending, resets numeric keys</li>
+          <li><code>asort($arr)</code> — sort by value, preserves keys</li>
+          <li><code>ksort($arr)</code> — sort by key alphabetically</li>
+        </ul>
+
+        <button class="done-btn" id="done-arrays" onclick="markDone('arrays')">
+          <div class="done-circle" id="dc-arrays"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Operators -->
+    <div class="topic" id="t-operators">
+      <div class="topic-head" onclick="toggle('operators')">
+        <div class="topic-left">
+          <span class="topic-num">07</span>
+          <span class="topic-icon">➕</span>
+          <span class="topic-name">Operators &amp; Type Casting</span>
+        </div>
+        <span class="topic-tag">core</span>
+        <span class="topic-chevron" id="chev-operators">▾</span>
+      </div>
+      <div class="topic-body" id="body-operators">
+
+        <div class="table-wrap">
+          <table class="dt">
+            <tr><th>Type</th><th>Description</th><th>Examples</th></tr>
+            <tr><td>Arithmetic</td><td>Mathematical calculations</td><td><code>+ - * / % **</code></td></tr>
+            <tr><td>Assignment</td><td>Assign values to variables</td><td><code>= += -= *= /=</code></td></tr>
+            <tr><td>Comparison</td><td>Compare — returns Boolean</td><td><code>== != &lt; &gt; &lt;= &gt;= ===</code></td></tr>
+            <tr><td>Logical</td><td>Boolean logic</td><td><code>&amp;&amp; || ! and or</code></td></tr>
+            <tr><td>String</td><td>String operations</td><td><code>.</code> and <code>.=</code> (concatenation)</td></tr>
+            <tr><td>Array</td><td>Array operations</td><td><code>+ == === != &lt;&gt;</code></td></tr>
+          </table>
+        </div>
+
+        <div class="two-col" style="margin-top:14px">
+          <div class="mini-card">
+            <h4>Prefix <code>++$x</code></h4>
+            <p>Increments first, then returns the value</p>
+          </div>
+          <div class="mini-card">
+            <h4>Postfix <code>$x++</code></h4>
+            <p>Returns the value first, then increments</p>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — type casting &amp; ternary</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="cm">// Type casting — copies value into a new data type</span>
+<span class="vr">$speed</span> <span class="op">=</span> <span class="str">"55 mph"</span>;
+<span class="vr">$km</span>    <span class="op">=</span> (<span class="kw">int</span>) <span class="vr">$speed</span> <span class="op">*</span> <span class="nm">1.6</span>;  <span class="cm">// 88</span>
+
+<span class="cm">// Ternary — condition ? true : false</span>
+<span class="vr">$label</span> <span class="op">=</span> (<span class="vr">$age</span> <span class="op">&gt;=</span> <span class="nm">18</span>) <span class="op">?</span> <span class="str">"adult"</span> <span class="op">:</span> <span class="str">"minor"</span>;</pre>
+        </div>
+
+        <button class="done-btn" id="done-operators" onclick="markDone('operators')">
+          <div class="done-circle" id="dc-operators"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: include vs require -->
+    <div class="topic" id="t-include">
+      <div class="topic-head" onclick="toggle('include')">
+        <div class="topic-left">
+          <span class="topic-num">08</span>
+          <span class="topic-icon">📎</span>
+          <span class="topic-name">include vs require</span>
+        </div>
+        <span class="topic-tag">files</span>
+        <span class="topic-chevron" id="chev-include">▾</span>
+      </div>
+      <div class="topic-body" id="body-include">
+
+        <div class="two-col">
+          <div class="mini-card">
+            <h4>require / require_once</h4>
+            <p>File not found → <strong>fatal error</strong>, script stops. Use for critical files like DB credentials.</p>
+          </div>
+          <div class="mini-card">
+            <h4>include / include_once</h4>
+            <p>File not found → <strong>warning only</strong>, script continues. Use for optional files.</p>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — require_once (course standard)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="kw">&lt;?php</span>
+<span class="cm">// Path depth must match actual folder nesting</span>
+<span class="fn">require_once</span>(<span class="str">'../../sqlinfo.inc.php'</span>);
+
+<span class="cm">// Now available: $sql_host, $sql_user, $sql_pass, $sql_db</span>
+<span class="vr">$conn</span> <span class="op">=</span> <span class="fn">mysqli_connect</span>(<span class="vr">$sql_host</span>, <span class="vr">$sql_user</span>, <span class="vr">$sql_pass</span>, <span class="vr">$sql_db</span>);
+<span class="kw">?&gt;</span></pre>
+        </div>
+
+        <div class="highlight-box">
+          <strong>Course rule:</strong> Always use <code>require_once</code> for DB credentials — never hardcode them. The <code>../</code> path depth must match your actual folder nesting inside <code>htdocs/</code>.
+        </div>
+
+        <button class="done-btn" id="done-include" onclick="markDone('include')">
+          <div class="done-circle" id="dc-include"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!--  WEEK 3 — PHP PART 2                                   -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="week-section" id="w3">
+
+    <div class="week-header">
+      <span class="week-bg-num">03</span>
+      <div class="week-meta">
+        <span class="week-label wk-teal">Week 3</span>
+        <span class="week-sub-label">PHP Part 2</span>
+      </div>
+      <div class="week-title">PHP Part 2</div>
+      <div class="week-divider"></div>
+    </div>
+
+    <!-- Topic: Sorting -->
+    <div class="topic" id="t-sorting">
+      <div class="topic-head" onclick="toggle('sorting')">
+        <div class="topic-left">
+          <span class="topic-num">09</span>
+          <span class="topic-icon">🔢</span>
+          <span class="topic-name">Searching &amp; Sorting Arrays</span>
+        </div>
+        <span class="topic-tag">algorithms</span>
+        <span class="topic-chevron" id="chev-sorting">▾</span>
+      </div>
+      <div class="topic-body" id="body-sorting">
+
+        <div class="two-col">
+          <div class="mini-card">
+            <h4>Linear Search</h4>
+            <p>Checks every element one by one. Works on <strong>unsorted</strong> data. O(n) time complexity.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Binary Search</h4>
+            <p>Splits search space in half each time. Requires <strong>sorted</strong> data. O(log₂ n) time complexity.</p>
+          </div>
+        </div>
+
+        <div class="highlight-box">
+          <strong>Binary search on 100 items:</strong> max <strong>7 guesses</strong> — ceil(log₂ 100) = 7. Much faster than linear, but the array must be sorted first.
+        </div>
+
+        <p class="body-text"><strong>Quicksort</strong> — divides the array around a pivot, recursively sorts both halves. PHP uses this internally for <code>sort()</code>. Average: O(n log n). Worst case: O(n²).</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — sorting functions</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="vr">$nums</span> <span class="op">=</span> <span class="fn">array</span>(<span class="nm">3</span>, <span class="nm">1</span>, <span class="nm">4</span>, <span class="nm">1</span>, <span class="nm">5</span>);
+<span class="fn">sort</span>(<span class="vr">$nums</span>);    <span class="cm">// [1, 1, 3, 4, 5] — ascending, resets keys</span>
+<span class="fn">rsort</span>(<span class="vr">$nums</span>);   <span class="cm">// [5, 4, 3, 1, 1] — descending</span>
+
+<span class="vr">$ages</span> <span class="op">=</span> <span class="fn">array</span>(<span class="str">"Bob"</span><span class="op">=&gt;</span><span class="nm">25</span>, <span class="str">"Ana"</span><span class="op">=&gt;</span><span class="nm">19</span>, <span class="str">"Zoe"</span><span class="op">=&gt;</span><span class="nm">22</span>);
+<span class="fn">asort</span>(<span class="vr">$ages</span>);   <span class="cm">// sort by value, keep original keys</span>
+<span class="fn">ksort</span>(<span class="vr">$ages</span>);   <span class="cm">// sort by key alphabetically</span></pre>
+        </div>
+
+        <button class="done-btn" id="done-sorting" onclick="markDone('sorting')">
+          <div class="done-circle" id="dc-sorting"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Superglobals -->
+    <div class="topic" id="t-superglobals">
+      <div class="topic-head" onclick="toggle('superglobals')">
+        <div class="topic-left">
+          <span class="topic-num">10</span>
+          <span class="topic-icon">🌍</span>
+          <span class="topic-name">PHP Superglobals</span>
+        </div>
+        <span class="topic-tag">core</span>
+        <span class="topic-chevron" id="chev-superglobals">▾</span>
+      </div>
+      <div class="topic-body" id="body-superglobals">
+
+        <p class="body-text">Superglobals are built-in PHP variables that are <strong>always accessible in any scope</strong> — inside functions, classes, or files — without needing to declare them.</p>
+
+        <div class="table-wrap">
+          <table class="dt">
+            <tr><th>Superglobal</th><th>What it contains</th></tr>
+            <tr><td><code>$_GET</code></td><td>Data sent via URL query string — e.g. <code>page.php?name=Ali</code></td></tr>
+            <tr><td><code>$_POST</code></td><td>Data sent via HTTP POST body — form submissions</td></tr>
+            <tr><td><code>$_REQUEST</code></td><td>Combines GET, POST, and COOKIE data</td></tr>
+            <tr><td><code>$_SESSION</code></td><td>Session variables — persist across multiple pages</td></tr>
+            <tr><td><code>$_COOKIE</code></td><td>Cookie values stored in the user's browser</td></tr>
+            <tr><td><code>$_SERVER</code></td><td>Server and execution environment information</td></tr>
+          </table>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — $_GET example (from lecture)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="kw">&lt;?php</span>
+  <span class="cm">// URL: page.php?name=Spencer&amp;pwd=pass123</span>
+  <span class="vr">$name</span> <span class="op">=</span> <span class="vr">$_GET</span>[<span class="str">"name"</span>];
+  <span class="vr">$pwd</span>  <span class="op">=</span> <span class="vr">$_GET</span>[<span class="str">"pwd"</span>];
+  <span class="fn">echo</span> <span class="vr">$name</span> <span class="op">.</span> <span class="str">" : "</span> <span class="op">.</span> <span class="vr">$pwd</span>;
+<span class="kw">?&gt;</span></pre>
+        </div>
+
+        <div class="highlight-box">
+          <strong>GET vs POST:</strong> Use <code>$_GET</code> when data can be public (visible in URL). Use <code>$_POST</code> for sensitive data like passwords — sent in the request body, not the URL.
+        </div>
+
+        <button class="done-btn" id="done-superglobals" onclick="markDone('superglobals')">
+          <div class="done-circle" id="dc-superglobals"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Strings -->
+    <div class="topic" id="t-strings">
+      <div class="topic-head" onclick="toggle('strings')">
+        <div class="topic-left">
+          <span class="topic-num">11</span>
+          <span class="topic-icon">🔤</span>
+          <span class="topic-name">PHP Strings</span>
+        </div>
+        <span class="topic-tag">core</span>
+        <span class="topic-chevron" id="chev-strings">▾</span>
+      </div>
+      <div class="topic-body" id="body-strings">
+
+        <div class="two-col">
+          <div class="mini-card">
+            <h4>Double quotes <code>"..."</code></h4>
+            <p>Variables and escape sequences are parsed. <code>"Hello $name"</code> expands the variable inline.</p>
+          </div>
+          <div class="mini-card">
+            <h4>Single quotes <code>'...'</code></h4>
+            <p>Literal string — variables are <strong>not</strong> expanded. Slightly faster to parse.</p>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — string functions</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="vr">$s</span> <span class="op">=</span> <span class="str">"Hello World"</span>;
+<span class="fn">strlen</span>(<span class="vr">$s</span>);                      <span class="cm">// 11</span>
+<span class="fn">strtoupper</span>(<span class="vr">$s</span>);                  <span class="cm">// HELLO WORLD</span>
+<span class="fn">strtolower</span>(<span class="vr">$s</span>);                  <span class="cm">// hello world</span>
+<span class="fn">str_replace</span>(<span class="str">"World"</span>, <span class="str">"PHP"</span>, <span class="vr">$s</span>); <span class="cm">// Hello PHP</span>
+<span class="fn">substr</span>(<span class="vr">$s</span>, <span class="nm">0</span>, <span class="nm">5</span>);                <span class="cm">// Hello</span>
+<span class="fn">strpos</span>(<span class="vr">$s</span>, <span class="str">"World"</span>);             <span class="cm">// 6</span>
+<span class="fn">trim</span>(<span class="str">"  hi  "</span>);                 <span class="cm">// "hi"</span></pre>
+        </div>
+
+        <button class="done-btn" id="done-strings" onclick="markDone('strings')">
+          <div class="done-circle" id="dc-strings"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Forms -->
+    <div class="topic" id="t-forms">
+      <div class="topic-head" onclick="toggle('forms')">
+        <div class="topic-left">
+          <span class="topic-num">12</span>
+          <span class="topic-icon">📝</span>
+          <span class="topic-name">HTML Forms &amp; Input Attributes</span>
+        </div>
+        <span class="topic-tag">html</span>
+        <span class="topic-chevron" id="chev-forms">▾</span>
+      </div>
+      <div class="topic-body" id="body-forms">
+
+        <ul class="kp-list">
+          <li><code>action</code> — the PHP file the form data is sent to on submission</li>
+          <li><code>method</code> — either <code>GET</code> (data in URL) or <code>POST</code> (data in request body)</li>
+          <li><code>name</code> — the key used in <code>$_GET["name"]</code> or <code>$_POST["name"]</code> in PHP</li>
+          <li><code>required</code> — HTML5 browser-side validation, prevents empty submission</li>
+          <li><code>pattern="[A-Za-z]{3}"</code> — validates input against a regular expression</li>
+          <li>Other attributes: <code>autocomplete</code>, <code>autofocus</code>, <code>min</code>, <code>max</code></li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">html — form with action, method, validation</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="op">&lt;</span><span class="fn">form</span> <span class="at">action</span><span class="op">=</span><span class="str">"process.php"</span> <span class="at">method</span><span class="op">=</span><span class="str">"POST"</span><span class="op">&gt;</span>
+  <span class="op">&lt;</span><span class="fn">input</span> <span class="at">type</span><span class="op">=</span><span class="str">"text"</span> <span class="at">name</span><span class="op">=</span><span class="str">"username"</span> <span class="at">required</span><span class="op">&gt;</span>
+  <span class="op">&lt;</span><span class="fn">input</span> <span class="at">type</span><span class="op">=</span><span class="str">"text"</span> <span class="at">name</span><span class="op">=</span><span class="str">"country"</span>
+    <span class="at">pattern</span><span class="op">=</span><span class="str">"[A-Za-z]{3}"</span>
+    <span class="at">title</span><span class="op">=</span><span class="str">"Three letter country code"</span><span class="op">&gt;</span>
+  <span class="op">&lt;</span><span class="fn">button</span> <span class="at">type</span><span class="op">=</span><span class="str">"submit"</span><span class="op">&gt;</span>Submit<span class="op">&lt;/</span><span class="fn">button</span><span class="op">&gt;</span>
+<span class="op">&lt;/</span><span class="fn">form</span><span class="op">&gt;</span></pre>
+        </div>
+
+        <button class="done-btn" id="done-forms" onclick="markDone('forms')">
+          <div class="done-circle" id="dc-forms"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!--  WEEK 4 — CONTROL STRUCTURES                           -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="week-section" id="w4">
+
+    <div class="week-header">
+      <span class="week-bg-num">04</span>
+      <div class="week-meta">
+        <span class="week-label wk-red">Week 4</span>
+        <span class="week-sub-label">Control Structures</span>
+      </div>
+      <div class="week-title">Control Structures</div>
+      <div class="week-divider"></div>
+    </div>
+
+    <!-- Topic: if/else -->
+    <div class="topic" id="t-ifelse">
+      <div class="topic-head" onclick="toggle('ifelse')">
+        <div class="topic-left">
+          <span class="topic-num">13</span>
+          <span class="topic-icon">🔀</span>
+          <span class="topic-name">if / else / elseif</span>
+        </div>
+        <span class="topic-tag">decisions</span>
+        <span class="topic-chevron" id="chev-ifelse">▾</span>
+      </div>
+      <div class="topic-body" id="body-ifelse">
+
+        <ul class="kp-list">
+          <li>A <strong>command block</strong> is a group of statements enclosed in curly braces <code>{ }</code></li>
+          <li>Every command block must have an opening <code>{</code> and a closing <code>}</code></li>
+          <li>Nested if/else statements are called <strong>decision-making structures</strong></li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — if / elseif / else</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="vr">$score</span> <span class="op">=</span> <span class="nm">75</span>;
+
+<span class="kw">if</span> (<span class="vr">$score</span> <span class="op">&gt;=</span> <span class="nm">90</span>) {
+    <span class="fn">echo</span> <span class="str">"A Grade"</span>;
+} <span class="kw">elseif</span> (<span class="vr">$score</span> <span class="op">&gt;=</span> <span class="nm">70</span>) {
+    <span class="fn">echo</span> <span class="str">"B Grade"</span>;  <span class="cm">// ← this runs</span>
+} <span class="kw">else</span> {
+    <span class="fn">echo</span> <span class="str">"Below B"</span>;
+}
+
+<span class="cm">// Nested if — example from lecture</span>
+<span class="kw">if</span> (<span class="vr">$_GET</span>[<span class="str">"SalesTotal"</span>] <span class="op">&gt;</span> <span class="nm">50</span>) {
+    <span class="kw">if</span> (<span class="vr">$_GET</span>[<span class="str">"SalesTotal"</span>] <span class="op">&lt;</span> <span class="nm">100</span>) {
+        <span class="fn">echo</span> <span class="str">"Sales between 50 and 100"</span>;
+    }
+}</pre>
+        </div>
+
+        <button class="done-btn" id="done-ifelse" onclick="markDone('ifelse')">
+          <div class="done-circle" id="dc-ifelse"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Switch -->
+    <div class="topic" id="t-switch">
+      <div class="topic-head" onclick="toggle('switch')">
+        <div class="topic-left">
+          <span class="topic-num">14</span>
+          <span class="topic-icon">🔁</span>
+          <span class="topic-name">switch Statement</span>
+        </div>
+        <span class="topic-tag">decisions</span>
+        <span class="topic-chevron" id="chev-switch">▾</span>
+      </div>
+      <div class="topic-body" id="body-switch">
+
+        <ul class="kp-list">
+          <li>Use <code>switch</code> when testing one variable against many possible values</li>
+          <li>Each <code>case</code> must end with <code>break;</code> to prevent fall-through to the next case</li>
+          <li><code>default:</code> runs if no case matches — equivalent to a final <code>else</code></li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — switch statement</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="kw">switch</span> (<span class="vr">$day</span>) {
+    <span class="kw">case</span> <span class="str">"Mon"</span>:
+        <span class="fn">echo</span> <span class="str">"Monday"</span>;
+        <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="str">"Fri"</span>:
+        <span class="fn">echo</span> <span class="str">"Friday"</span>;
+        <span class="kw">break</span>;
+    <span class="kw">default</span>:
+        <span class="fn">echo</span> <span class="str">"Other day"</span>;
+}</pre>
+        </div>
+
+        <button class="done-btn" id="done-switch" onclick="markDone('switch')">
+          <div class="done-circle" id="dc-switch"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Loops -->
+    <div class="topic" id="t-loops">
+      <div class="topic-head" onclick="toggle('loops')">
+        <div class="topic-left">
+          <span class="topic-num">15</span>
+          <span class="topic-icon">🔄</span>
+          <span class="topic-name">Loops — while · for · foreach</span>
+        </div>
+        <span class="topic-tag">loops</span>
+        <span class="topic-chevron" id="chev-loops">▾</span>
+      </div>
+      <div class="topic-body" id="body-loops">
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — while loop (from lecture)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="vr">$count</span> <span class="op">=</span> <span class="nm">10</span>;
+<span class="kw">while</span> (<span class="vr">$count</span> <span class="op">&gt;</span> <span class="nm">0</span>) {
+    <span class="fn">echo</span> <span class="vr">$count</span> <span class="op">.</span> <span class="str">"&lt;br /&gt;"</span>;
+    <span class="vr">$count</span><span class="op">--</span>;
+}
+<span class="fn">echo</span> <span class="str">"We have liftoff!"</span>;</pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — for loop</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="kw">for</span> (<span class="vr">$i</span> <span class="op">=</span> <span class="nm">0</span>; <span class="vr">$i</span> <span class="op">&lt;</span> <span class="nm">5</span>; <span class="vr">$i</span><span class="op">++</span>) {
+    <span class="fn">echo</span> <span class="str">"Row "</span> <span class="op">.</span> <span class="vr">$i</span> <span class="op">.</span> <span class="str">"&lt;br&gt;"</span>;
+}</pre>
+        </div>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — foreach (course standard)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="cm">// Indexed array</span>
+<span class="vr">$students</span> <span class="op">=</span> <span class="fn">array</span>(<span class="str">"Ali"</span>, <span class="str">"Sam"</span>, <span class="str">"Jess"</span>);
+<span class="kw">foreach</span> (<span class="vr">$students</span> <span class="kw">as</span> <span class="vr">$student</span>) {
+    <span class="fn">echo</span> <span class="str">"&lt;p&gt;"</span> <span class="op">.</span> <span class="vr">$student</span> <span class="op">.</span> <span class="str">"&lt;/p&gt;"</span>;
+}
+
+<span class="cm">// Associative — key and value</span>
+<span class="kw">foreach</span> (<span class="vr">$ages</span> <span class="kw">as</span> <span class="vr">$name</span> <span class="op">=&gt;</span> <span class="vr">$age</span>) {
+    <span class="fn">echo</span> <span class="vr">$name</span> <span class="op">.</span> <span class="str">" is "</span> <span class="op">.</span> <span class="vr">$age</span>;
+}</pre>
+        </div>
+
+        <div class="info-box">
+          <code>foreach</code> is the standard loop used throughout this course — especially for iterating over arrays of rows returned from MySQL queries via <code>mysqli_fetch_assoc()</code>.
+        </div>
+
+        <button class="done-btn" id="done-loops" onclick="markDone('loops')">
+          <div class="done-circle" id="dc-loops"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <div class="spacer"></div>
+
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!--  WEEK 5 — AJAX & JSON                                  -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <section class="week-section" id="w5">
+
+    <div class="week-header">
+      <span class="week-bg-num">05</span>
+      <div class="week-meta">
+        <span class="week-label wk-blue">Week 5</span>
+        <span class="week-sub-label">AJAX &amp; JSON</span>
+      </div>
+      <div class="week-title">AJAX &amp; JSON</div>
+      <div class="week-divider"></div>
+    </div>
+
+    <!-- Topic: Web Services -->
+    <div class="topic" id="t-webservices">
+      <div class="topic-head" onclick="toggle('webservices')">
+        <div class="topic-left">
+          <span class="topic-num">16</span>
+          <span class="topic-icon">🔌</span>
+          <span class="topic-name">Web Services &amp; REST</span>
+        </div>
+        <span class="topic-tag">architecture</span>
+        <span class="topic-chevron" id="chev-webservices">▾</span>
+      </div>
+      <div class="topic-body" id="body-webservices">
+
+        <div class="two-col">
+          <div class="mini-card">
+            <h4>Traditional (SOAP)</h4>
+            <p>XML-based. Strict contracts via <strong>WSDL</strong>. Heavyweight. Described with <code>.wsdl</code> files.</p>
+          </div>
+          <div class="mini-card">
+            <h4>REST</h4>
+            <p>HTTP methods. Lightweight. JSON-based. Resource-oriented URLs. Described via <strong>OpenAPI (YAML)</strong>.</p>
+          </div>
+        </div>
+
+        <ul class="kp-list">
+          <li>REST uses: <code>GET</code> (read), <code>POST</code> (create), <code>PUT</code> (update), <code>DELETE</code> (delete)</li>
+          <li>WSDL = Web Services Description Language — describes a SOAP service in XML</li>
+          <li>OpenAPI (formerly Swagger) — describes REST APIs in YAML format</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — url routing (from lecture)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="cm">// http://localhost/api/v1/employees → getEmployees() via GET</span>
+<span class="vr">$app</span><span class="op">-&gt;</span><span class="fn">get</span>(<span class="str">'/employees'</span>,       <span class="str">'getEmployees'</span>);
+<span class="vr">$app</span><span class="op">-&gt;</span><span class="fn">get</span>(<span class="str">'/employee/{id}'</span>,  <span class="str">'getEmployee'</span>);
+<span class="vr">$app</span><span class="op">-&gt;</span><span class="fn">post</span>(<span class="str">'/create'</span>,        <span class="str">'addEmployee'</span>);
+<span class="vr">$app</span><span class="op">-&gt;</span><span class="fn">put</span>(<span class="str">'/update/{id}'</span>,    <span class="str">'updateEmployee'</span>);
+<span class="vr">$app</span><span class="op">-&gt;</span><span class="fn">delete</span>(<span class="str">'/delete/{id}'</span>, <span class="str">'deleteEmployee'</span>);</pre>
+        </div>
+
+        <button class="done-btn" id="done-webservices" onclick="markDone('webservices')">
+          <div class="done-circle" id="dc-webservices"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: JSON/XML -->
+    <div class="topic" id="t-json">
+      <div class="topic-head" onclick="toggle('json')">
+        <div class="topic-left">
+          <span class="topic-num">17</span>
+          <span class="topic-icon">📄</span>
+          <span class="topic-name">XML &amp; JSON</span>
+        </div>
+        <span class="topic-tag">data formats</span>
+        <span class="topic-chevron" id="chev-json">▾</span>
+      </div>
+      <div class="topic-body" id="body-json">
+
+        <p class="body-text"><strong>Why use XML and JSON?</strong> — Simplicity, extensibility, interoperability, platform-independent, industry-accepted, supports Unicode, one data source — multiple views.</p>
+
+        <div class="divider"></div>
+        <p class="body-text"><strong>XML Documents</strong> must be:</p>
+        <ul class="kp-list">
+          <li><strong>Well-formed</strong> (compulsory) — correct syntax, all tags properly closed and nested</li>
+          <li><strong>Valid against a Schema/DTD</strong> (optional) — validates structure and data types</li>
+          <li>Parsers check for well-formedness. <em>Validating parsers</em> also check against DTD/Schema.</li>
+          <li>A <strong>character reference</strong> uses decimal/hex to represent special characters (e.g. <code>&amp;#169;</code> = ©)</li>
+        </ul>
+
+        <div class="divider"></div>
+        <p class="body-text"><strong>JSON (JavaScript Object Notation)</strong> — lightweight, human-readable. The mainstream format for web data transfer in Web 2.0.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">json — data structure</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre>{
+  <span class="at">"name"</span>: <span class="str">"Spencer"</span>,
+  <span class="at">"age"</span>: <span class="nm">21</span>,
+  <span class="at">"courses"</span>: [<span class="str">"COMP721"</span>, <span class="str">"COMP712"</span>],
+  <span class="at">"active"</span>: <span class="kw">true</span>
+}</pre>
+        </div>
+
+        <p class="body-text"><strong>JSON Schema</strong> — defines the expected structure. <code>type</code> is the only mandatory constraint.</p>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">json — schema (from lecture)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre>{
+  <span class="at">"$schema"</span>: <span class="str">"http://json-schema.org/draft-07/schema#"</span>,
+  <span class="at">"title"</span>: <span class="str">"Product"</span>,
+  <span class="at">"description"</span>: <span class="str">"A product in the catalog"</span>,
+  <span class="at">"type"</span>: <span class="str">"object"</span>
+}</pre>
+        </div>
+
+        <button class="done-btn" id="done-json" onclick="markDone('json')">
+          <div class="done-circle" id="dc-json"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Web 2.0 / Fetch -->
+    <div class="topic" id="t-web20">
+      <div class="topic-head" onclick="toggle('web20')">
+        <div class="topic-left">
+          <span class="topic-num">18</span>
+          <span class="topic-icon">⚡</span>
+          <span class="topic-name">Web 2.0 &amp; the Fetch API</span>
+        </div>
+        <span class="topic-tag">ajax</span>
+        <span class="topic-chevron" id="chev-web20">▾</span>
+      </div>
+      <div class="topic-body" id="body-web20">
+
+        <p class="body-text">Web 2.0 resolves limitations of the classic request-response model. The goal: allow <strong>dynamic change</strong> in the interface whilst the user keeps interacting — without full page reloads.</p>
+
+        <ul class="kp-list">
+          <li><strong>JSON</strong> — mainstream data transfer format between client and server</li>
+          <li><strong>DOM</strong> — dynamically manipulate page objects (<code>document.getElementById</code>, <code>innerHTML</code>)</li>
+          <li><strong>Fetch API</strong> — makes asynchronous HTTP requests (modern replacement for XHR)</li>
+          <li>Enables: partial page updating, invisible data retrieval, live feeds, drag-and-drop, dynamic menus</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">javascript — fetch api (course pattern)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="fn">fetch</span>(<span class="str">"booking.php?action=getAll"</span>)
+  .<span class="fn">then</span>(<span class="vr">response</span> <span class="op">=&gt;</span> <span class="vr">response</span>.<span class="fn">json</span>())
+  .<span class="fn">then</span>(<span class="vr">data</span> <span class="op">=&gt;</span> {
+    <span class="vr">data</span>.<span class="fn">forEach</span>(<span class="vr">row</span> <span class="op">=&gt;</span> {
+      <span class="vr">document</span>.<span class="fn">getElementById</span>(<span class="str">"results"</span>)
+        .<span class="vr">innerHTML</span> <span class="op">+=</span> <span class="str">"&lt;tr&gt;&lt;td&gt;"</span> <span class="op">+</span> <span class="vr">row</span>.<span class="vr">name</span> <span class="op">+</span> <span class="str">"&lt;/td&gt;&lt;/tr&gt;"</span>;
+    });
+  });</pre>
+        </div>
+
+        <div class="highlight-box">
+          <strong>XHR vs Fetch:</strong> XHR (XMLHttpRequest) was the original AJAX approach. This course uses the modern <strong>Fetch API</strong> — promise-based, cleaner syntax.
+        </div>
+
+        <button class="done-btn" id="done-web20" onclick="markDone('web20')">
+          <div class="done-circle" id="dc-web20"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: MySQL -->
+    <div class="topic" id="t-mysql">
+      <div class="topic-head" onclick="toggle('mysql')">
+        <div class="topic-left">
+          <span class="topic-num">19</span>
+          <span class="topic-icon">🗄️</span>
+          <span class="topic-name">PHP &amp; MySQL (mysqli)</span>
+        </div>
+        <span class="topic-tag">database</span>
+        <span class="topic-chevron" id="chev-mysql">▾</span>
+      </div>
+      <div class="topic-body" id="body-mysql">
+
+        <ul class="kp-list">
+          <li>Always use <code>require_once</code> to load DB credentials — never hardcode them</li>
+          <li>Use <strong>procedural <code>mysqli</code></strong> style as taught in lectures — not PDO or OOP mysqli</li>
+          <li><code>mysqli_connect($host, $user, $pass, $db)</code> — opens a connection</li>
+          <li><code>mysqli_query($conn, $sql)</code> — executes a SQL statement</li>
+          <li><code>mysqli_fetch_assoc($result)</code> — fetches one row as an associative array</li>
+          <li><code>mysqli_num_rows($result)</code> — returns number of rows in the result set</li>
+          <li><code>mysqli_close($conn)</code> — closes the connection</li>
+          <li><code>json_encode($array)</code> — converts PHP array to JSON string for Fetch response</li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — full mysqli pattern (course standard)</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="fn">require_once</span>(<span class="str">'../../sqlinfo.inc.php'</span>);
+
+<span class="vr">$conn</span>   <span class="op">=</span> <span class="fn">mysqli_connect</span>(<span class="vr">$sql_host</span>, <span class="vr">$sql_user</span>, <span class="vr">$sql_pass</span>, <span class="vr">$sql_db</span>);
+<span class="vr">$sql</span>    <span class="op">=</span> <span class="str">"SELECT * FROM bookings"</span>;
+<span class="vr">$result</span> <span class="op">=</span> <span class="fn">mysqli_query</span>(<span class="vr">$conn</span>, <span class="vr">$sql</span>);
+
+<span class="vr">$rows</span> <span class="op">=</span> <span class="fn">array</span>();
+<span class="kw">while</span> (<span class="vr">$row</span> <span class="op">=</span> <span class="fn">mysqli_fetch_assoc</span>(<span class="vr">$result</span>)) {
+    <span class="vr">$rows</span>[] <span class="op">=</span> <span class="vr">$row</span>;
+}
+<span class="fn">echo</span> <span class="fn">json_encode</span>(<span class="vr">$rows</span>);
+<span class="fn">mysqli_close</span>(<span class="vr">$conn</span>);</pre>
+        </div>
+
+        <div class="highlight-box">
+          <strong>TRUNCATE vs DELETE:</strong> <code>TRUNCATE</code> removes all rows <em>and</em> resets AUTO_INCREMENT to 1. <code>DELETE</code> removes rows but does <strong>not</strong> reset AUTO_INCREMENT.
+        </div>
+
+        <button class="done-btn" id="done-mysql" onclick="markDone('mysql')">
+          <div class="done-circle" id="dc-mysql"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+  </section>
+
+  <div style="height: 80px;"></div>
+
+</div><!-- end .container -->
+
+<script src="script.js"></script>
+</body>
+</html>
