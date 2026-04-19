@@ -3,10 +3,11 @@
    Handles: accordion, mark-as-reviewed, progress, scroll spy
    ============================================================ */
 
-const TOTAL_TOPICS = 21;
+/* ── AUTO COUNT TOTAL TOPICS (UPDATED) ─────────────────────── */
+let TOTAL_TOPICS = 0;
 const done = new Set();
 
-/* ── ACCORDION ──────────────────────────────────────────────── */
+/* ── ACCORDION ─────────────────────────────────────────────── */
 function toggle(id) {
   const body = document.getElementById('body-' + id);
   const card = body.closest('.topic');
@@ -15,10 +16,11 @@ function toggle(id) {
 
   body.classList.toggle('open', !isOpen);
   card.classList.toggle('open', !isOpen);
+
   if (chev) chev.textContent = isOpen ? '▾' : '▴';
 }
 
-/* ── MARK AS REVIEWED ───────────────────────────────────────── */
+/* ── MARK AS REVIEWED ──────────────────────────────────────── */
 function markDone(id) {
   if (done.has(id)) return;
   done.add(id);
@@ -34,29 +36,31 @@ function markDone(id) {
       Reviewed
     `;
   }
+
   updateProgress();
 }
 
-/* ── PROGRESS ───────────────────────────────────────────────── */
+/* ── PROGRESS ──────────────────────────────────────────────── */
 function updateProgress() {
   const count = done.size;
-  const pct   = Math.round((count / TOTAL_TOPICS) * 100);
+  const pct = TOTAL_TOPICS === 0 ? 0 : Math.round((count / TOTAL_TOPICS) * 100);
 
-  // Top line
+  // Top progress bar
   const line = document.getElementById('progress-line');
   if (line) line.style.width = pct + '%';
 
   // Nav counter
-  const navDone  = document.getElementById('nav-done');
+  const navDone = document.getElementById('nav-done');
   const navTotal = document.getElementById('nav-total');
-  if (navDone)  navDone.textContent  = count;
+
+  if (navDone) navDone.textContent = count;
   if (navTotal) navTotal.textContent = TOTAL_TOPICS;
 }
 
-/* ── SCROLL SPY ─────────────────────────────────────────────── */
+/* ── SCROLL SPY ────────────────────────────────────────────── */
 function initScrollSpy() {
   const sections = document.querySelectorAll('.week-section');
-  const navLinks  = document.querySelectorAll('.nav-link[data-week]');
+  const navLinks = document.querySelectorAll('.nav-link[data-week]');
   if (!sections.length) return;
 
   const observer = new IntersectionObserver(
@@ -64,7 +68,11 @@ function initScrollSpy() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navLinks.forEach(l => l.classList.remove('active'));
-          const match = document.querySelector(`.nav-link[data-week="${entry.target.id}"]`);
+
+          const match = document.querySelector(
+            `.nav-link[data-week="${entry.target.id}"]`
+          );
+
           if (match) match.classList.add('active');
         }
       });
@@ -75,8 +83,11 @@ function initScrollSpy() {
   sections.forEach(s => observer.observe(s));
 }
 
-/* ── INIT ───────────────────────────────────────────────────── */
+/* ── INIT ─────────────────────────────────────────────────── */
 document.addEventListener('DOMContentLoaded', () => {
+  // Count all topics dynamically
+  TOTAL_TOPICS = document.querySelectorAll('.topic').length;
+
   initScrollSpy();
   updateProgress();
 });

@@ -25,14 +25,14 @@
     <a class="nav-link active" href="#w1" data-week="w1">W1 — HTTP</a>
     <a class="nav-link" href="#w2" data-week="w2">W2 — PHP</a>
     <a class="nav-link" href="#w3" data-week="w3">W3 — PHP II</a>
-    <a class="nav-link" href="#w4" data-week="w4">W4 — Control</a>
-    <a class="nav-link" href="#w5" data-week="w5">W5 — AJAX</a>
+    <a class="nav-link" href="#w4" data-week="w4">W4 — CSS/DB</a>
+    <a class="nav-link" href="#w5" data-week="w5">W5 — JSON/AJAX</a>
   </div>
 
   <div class="nav-progress">
     <span class="done-num" id="nav-done">0</span>
     <span style="color: var(--dim)"> / </span>
-    <span id="nav-total">21</span>
+    <span id="nav-total">0</span>
     <span style="color: var(--dim); font-size: 10px; margin-left: 4px;">reviewed</span>
   </div>
 </nav>
@@ -53,7 +53,7 @@
       <span class="accent-line">REVISION</span>
     </h1>
     <p class="hero-desc">
-      Every key concept from your COMP721 lectures — organised by week with code examples. Click any topic to expand it, then mark it reviewed.
+      Key quiz concepts from your COMP721 lectures and practice questions — organised by week with examples, definitions, and common traps. Click any topic to expand it, then mark it reviewed.
     </p>
     <div class="hero-chips">
       <span class="chip">PHP</span>
@@ -192,6 +192,80 @@
         </button>
       </div>
     </div>
+
+
+    <!-- Topic: HTML Structure -->
+    <div class="topic" id="t-htmlstructure">
+      <div class="topic-head" onclick="toggle('htmlstructure')">
+        <div class="topic-left">
+          <span class="topic-num">04</span>
+          <span class="topic-icon">🧱</span>
+          <span class="topic-name">HTML Document Structure &amp; Core Tags</span>
+        </div>
+        <span class="topic-tag">html</span>
+        <span class="topic-chevron" id="chev-htmlstructure">▾</span>
+      </div>
+      <div class="topic-body" id="body-htmlstructure">
+
+        <ul class="kp-list">
+          <li>Every HTML document uses <strong>&lt;html&gt;</strong> as the root element</li>
+          <li>The <strong>&lt;head&gt;</strong> contains metadata and must include a <strong>&lt;title&gt;</strong></li>
+          <li>The <strong>&lt;body&gt;</strong> contains the visible page content rendered in the browser</li>
+          <li>Common tags to know for quiz questions: <code>&lt;h1&gt;...&lt;h6&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;br /&gt;</code>, <code>&lt;hr /&gt;</code>, <code>&lt;img /&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code>, <code>&lt;table&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></li>
+          <li><strong>Void elements</strong> like <code>&lt;br /&gt;</code>, <code>&lt;hr /&gt;</code>, and <code>&lt;img /&gt;</code> do not wrap content</li>
+          <li>An <strong>element</strong> is the tag plus its content — e.g. <code>&lt;p&gt;Hello&lt;/p&gt;</code></li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">html — basic document structure</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="op">&lt;</span><span class="fn">html</span><span class="op">&gt;</span>
+<span class="op">&lt;</span><span class="fn">head</span><span class="op">&gt;</span>
+  <span class="op">&lt;</span><span class="fn">title</span><span class="op">&gt;</span>My First Web Page<span class="op">&lt;/</span><span class="fn">title</span><span class="op">&gt;</span>
+<span class="op">&lt;/</span><span class="fn">head</span><span class="op">&gt;</span>
+<span class="op">&lt;</span><span class="fn">body</span><span class="op">&gt;</span>
+  <span class="op">&lt;</span><span class="fn">h1</span><span class="op">&gt;</span>Chapter Title<span class="op">&lt;/</span><span class="fn">h1</span><span class="op">&gt;</span>
+  <span class="op">&lt;</span><span class="fn">p</span><span class="op">&gt;</span>Hello World!<span class="op">&lt;/</span><span class="fn">p</span><span class="op">&gt;</span>
+<span class="op">&lt;/</span><span class="fn">body</span><span class="op">&gt;</span>
+<span class="op">&lt;/</span><span class="fn">html</span><span class="op">&gt;</span></pre>
+        </div>
+
+        <button class="done-btn" id="done-htmlstructure" onclick="markDone('htmlstructure')">
+          <div class="done-circle" id="dc-htmlstructure"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Attributes -->
+    <div class="topic" id="t-htmlattrs">
+      <div class="topic-head" onclick="toggle('htmlattrs')">
+        <div class="topic-left">
+          <span class="topic-num">05</span>
+          <span class="topic-icon">🏷️</span>
+          <span class="topic-name">HTML Attributes, Links, Images &amp; Lists</span>
+        </div>
+        <span class="topic-tag">html</span>
+        <span class="topic-chevron" id="chev-htmlattrs">▾</span>
+      </div>
+      <div class="topic-body" id="body-htmlattrs">
+
+        <ul class="kp-list">
+          <li>Global attributes taught in lecture: <strong>id</strong>, <strong>title</strong>, <strong>style</strong>, <strong>class</strong></li>
+          <li><code>id</code> uniquely identifies one element</li>
+          <li>Hyperlinks use the <strong>&lt;a&gt;</strong> tag and the <code>href</code> attribute</li>
+          <li>Images use the <strong>&lt;img&gt;</strong> tag with <code>src</code> and <code>alt</code></li>
+          <li><strong>ul</strong> creates a bullet list, <strong>ol</strong> creates a numbered list, and <strong>li</strong> creates each item</li>
+          <li><strong>Block elements</strong> start on a new line (e.g. <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;hr&gt;</code>) while <strong>inline elements</strong> stay on the same line (e.g. <code>&lt;a&gt;</code>, <code>&lt;img&gt;</code>)</li>
+        </ul>
+
+        <button class="done-btn" id="done-htmlattrs" onclick="markDone('htmlattrs')">
+          <div class="done-circle" id="dc-htmlattrs"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
   </section>
 
   <div class="spacer"></div>
@@ -477,6 +551,68 @@
         </button>
       </div>
     </div>
+
+
+    <!-- Topic: Output & Data Types -->
+    <div class="topic" id="t-outputtypes">
+      <div class="topic-head" onclick="toggle('outputtypes')">
+        <div class="topic-left">
+          <span class="topic-num">09</span>
+          <span class="topic-icon">🖨️</span>
+          <span class="topic-name">echo, print &amp; PHP Data Types</span>
+        </div>
+        <span class="topic-tag">syntax</span>
+        <span class="topic-chevron" id="chev-outputtypes">▾</span>
+      </div>
+      <div class="topic-body" id="body-outputtypes">
+
+        <ul class="kp-list">
+          <li><code>echo</code> and <code>print</code> are <strong>language constructs</strong>, not functions</li>
+          <li><code>echo</code> can output multiple arguments separated by commas</li>
+          <li><code>print</code> behaves similarly but returns 1 if successful</li>
+          <li>Core PHP data types from lecture: <strong>Boolean, Integer, Double/Float, String, Array, Object, Resource, NULL</strong></li>
+          <li>PHP is <strong>loosely typed / dynamically typed</strong> — variable types can change during execution</li>
+          <li><code>gettype($x)</code> tells you the type currently stored in a variable</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>Quiz trap:</strong> <code>echo</code> is not a normal function, so the lecture specifically notes that it is incorrect to put parentheses around multiple comma-separated arguments.
+        </div>
+
+        <button class="done-btn" id="done-outputtypes" onclick="markDone('outputtypes')">
+          <div class="done-circle" id="dc-outputtypes"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Functions & Comments -->
+    <div class="topic" id="t-functionscomments">
+      <div class="topic-head" onclick="toggle('functionscomments')">
+        <div class="topic-left">
+          <span class="topic-num">10</span>
+          <span class="topic-icon">🧩</span>
+          <span class="topic-name">Functions, Comments &amp; Expressions</span>
+        </div>
+        <span class="topic-tag">fundamentals</span>
+        <span class="topic-chevron" id="chev-functionscomments">▾</span>
+      </div>
+      <div class="topic-body" id="body-functionscomments">
+
+        <ul class="kp-list">
+          <li>A <strong>function</strong> performs a specific task and is called using its name followed by parentheses</li>
+          <li>Example lecture call: <code>pow(2,5)</code></li>
+          <li>Comments can be written as <code>//</code>, <code>#</code>, or <code>/* ... */</code></li>
+          <li>An <strong>expression</strong> is a literal value or variable that can be evaluated by the PHP scripting engine</li>
+          <li>Operands are the variables/literals; operators are the symbols that manipulate them</li>
+          <li><strong>Operator precedence</strong> determines evaluation order — if unsure, use parentheses</li>
+        </ul>
+
+        <button class="done-btn" id="done-functionscomments" onclick="markDone('functionscomments')">
+          <div class="done-circle" id="dc-functionscomments"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
   </section>
 
   <div class="spacer"></div>
@@ -683,13 +819,85 @@
         </button>
       </div>
     </div>
+
+
+    <!-- Topic: Sessions -->
+    <div class="topic" id="t-sessions">
+      <div class="topic-head" onclick="toggle('sessions')">
+        <div class="topic-left">
+          <span class="topic-num">13</span>
+          <span class="topic-icon">🔐</span>
+          <span class="topic-name">Sessions &amp; State Management</span>
+        </div>
+        <span class="topic-tag">state</span>
+        <span class="topic-chevron" id="chev-sessions">▾</span>
+      </div>
+      <div class="topic-body" id="body-sessions">
+
+        <ul class="kp-list">
+          <li>A <strong>session</strong> stores state information across multiple pages</li>
+          <li><code>session_start()</code> must be called <strong>before any output</strong> is sent to the browser</li>
+          <li>Session data is stored in the <code>$_SESSION</code> superglobal</li>
+          <li>Use <code>isset($_SESSION['key'])</code> before trying to read a session variable</li>
+          <li>To delete a session: call <code>session_start()</code>, reset <code>$_SESSION = array();</code>, then call <code>session_destroy()</code></li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — session pattern</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="kw">&lt;?php</span>
+<span class="fn">session_start</span>();
+<span class="vr">$_SESSION</span>[<span class="str">'firstName'</span>] <span class="op">=</span> <span class="str">"Don"</span>;
+<span class="vr">$_SESSION</span>[<span class="str">'occupation'</span>] <span class="op">=</span> <span class="str">"writer"</span>;
+<span class="kw">?&gt;</span></pre>
+        </div>
+
+        <button class="done-btn" id="done-sessions" onclick="markDone('sessions')">
+          <div class="done-circle" id="dc-sessions"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Validation -->
+    <div class="topic" id="t-validation">
+      <div class="topic-head" onclick="toggle('validation')">
+        <div class="topic-left">
+          <span class="topic-num">14</span>
+          <span class="topic-icon">✅</span>
+          <span class="topic-name">Form Validation &amp; Useful Input Types</span>
+        </div>
+        <span class="topic-tag">forms</span>
+        <span class="topic-chevron" id="chev-validation">▾</span>
+      </div>
+      <div class="topic-body" id="body-validation">
+
+        <ul class="kp-list">
+          <li><code>empty()</code> checks whether a variable is empty</li>
+          <li><code>isset()</code> checks whether a variable exists and is not NULL</li>
+          <li><code>is_numeric()</code> checks whether a variable contains a numeric value/string</li>
+          <li>Useful HTML5 input types from lecture: <code>date</code>, <code>time</code>, <code>month</code>, <code>week</code>, <code>email</code>, <code>url</code>, <code>color</code></li>
+          <li><strong>datalist</strong> provides a text input with predefined suggestions</li>
+        </ul>
+
+        <div class="highlight-box">
+          <strong>Quiz trap:</strong> The practice questions use <code>empty()</code> and <code>is_numeric()</code> a lot. Be able to explain why both are needed before calculating with form input.
+        </div>
+
+        <button class="done-btn" id="done-validation" onclick="markDone('validation')">
+          <div class="done-circle" id="dc-validation"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
   </section>
 
   <div class="spacer"></div>
 
 
   <!-- ══════════════════════════════════════════════════════ -->
-  <!--  WEEK 4 — CONTROL STRUCTURES                           -->
+  <!--  WEEK 4 — CSS, REGEX & DATABASES                         -->
   <!-- ══════════════════════════════════════════════════════ -->
   <section class="week-section" id="w4">
 
@@ -697,9 +905,9 @@
       <span class="week-bg-num">04</span>
       <div class="week-meta">
         <span class="week-label wk-red">Week 4</span>
-        <span class="week-sub-label">Control Structures</span>
+        <span class="week-sub-label">CSS · Regex · Databases</span>
       </div>
-      <div class="week-title">Control Structures</div>
+      <div class="week-title">CSS · Regex · Databases</div>
       <div class="week-divider"></div>
     </div>
 
@@ -855,6 +1063,105 @@
         </button>
       </div>
     </div>
+
+
+    <!-- Topic: CSS -->
+    <div class="topic" id="t-cssbasics">
+      <div class="topic-head" onclick="toggle('cssbasics')">
+        <div class="topic-left">
+          <span class="topic-num">16</span>
+          <span class="topic-icon">🎨</span>
+          <span class="topic-name">CSS Rules, Selectors &amp; Flexbox</span>
+        </div>
+        <span class="topic-tag">css</span>
+        <span class="topic-chevron" id="chev-cssbasics">▾</span>
+      </div>
+      <div class="topic-body" id="body-cssbasics">
+
+        <ul class="kp-list">
+          <li>CSS rule syntax: <code>selector { property: value; }</code></li>
+          <li>Three ways of applying CSS: <strong>inline</strong>, <strong>internal</strong>, and <strong>external</strong> — external stylesheets are best practice in the lecture</li>
+          <li><code>#danger</code> selects by <strong>id</strong>; <code>.upper</code> selects by <strong>class</strong>; <code>div p</code> selects descendant paragraphs</li>
+          <li><code>display: flex;</code> turns a container into a Flexbox layout</li>
+          <li>Key Flexbox properties: <code>justify-content</code>, <code>align-items</code>, <code>flex-grow</code></li>
+          <li>Inline styles override external styles because of the cascading order</li>
+        </ul>
+
+        <button class="done-btn" id="done-cssbasics" onclick="markDone('cssbasics')">
+          <div class="done-circle" id="dc-cssbasics"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Regex -->
+    <div class="topic" id="t-regex">
+      <div class="topic-head" onclick="toggle('regex')">
+        <div class="topic-left">
+          <span class="topic-num">17</span>
+          <span class="topic-icon">🔎</span>
+          <span class="topic-name">Regular Expressions Essentials</span>
+        </div>
+        <span class="topic-tag">regex</span>
+        <span class="topic-chevron" id="chev-regex">▾</span>
+      </div>
+      <div class="topic-body" id="body-regex">
+
+        <ul class="kp-list">
+          <li>PHP uses <strong>PCRE</strong> (Perl Compatible Regular Expressions)</li>
+          <li>Main functions taught: <code>preg_match()</code>, <code>preg_replace()</code>, <code>preg_split()</code></li>
+          <li>Important symbols: <code>^</code> start of string, <code>$</code> end of string, <code>\d</code> digit, <code>\w</code> word character, <code>\s</code> whitespace</li>
+          <li>Quantifiers: <code>?</code> zero or one, <code>*</code> zero or more, <code>+</code> one or more</li>
+          <li><code>/i</code> makes a pattern case-insensitive</li>
+          <li>Uppercase classes are complements: <code>\W</code>, <code>\D</code>, <code>\S</code></li>
+        </ul>
+
+        <div class="code-block">
+          <div class="code-bar">
+            <span class="code-lang">php — lecture regex example</span>
+            <div class="code-dots"><span></span><span></span><span></span></div>
+          </div>
+          <pre><span class="vr">$pattern</span> <span class="op">=</span> <span class="str">"/(chapter \d+(\.\d)*)/i"</span>;
+<span class="vr">$str</span> <span class="op">=</span> <span class="str">"For more information, see Chapter 3.4.5.1"</span>;
+
+<span class="kw">if</span> (<span class="fn">preg_match</span>(<span class="vr">$pattern</span>, <span class="vr">$str</span>)) {
+  <span class="fn">echo</span> <span class="str">"A match was found."</span>;
+}</pre>
+        </div>
+
+        <button class="done-btn" id="done-regex" onclick="markDone('regex')">
+          <div class="done-circle" id="dc-regex"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: Database concepts -->
+    <div class="topic" id="t-dbconcepts">
+      <div class="topic-head" onclick="toggle('dbconcepts')">
+        <div class="topic-left">
+          <span class="topic-num">18</span>
+          <span class="topic-icon">🧠</span>
+          <span class="topic-name">Relational Database Concepts &amp; SQL Basics</span>
+        </div>
+        <span class="topic-tag">database</span>
+        <span class="topic-chevron" id="chev-dbconcepts">▾</span>
+      </div>
+      <div class="topic-body" id="body-dbconcepts">
+
+        <ul class="kp-list">
+          <li>A <strong>record</strong> is a row; a <strong>field/attribute</strong> is a column</li>
+          <li>A <strong>primary key</strong> uniquely identifies each row</li>
+          <li>A <strong>foreign key</strong> points to the primary key in another table</li>
+          <li>A <strong>flat-file database</strong> stores everything in one table; a <strong>relational database</strong> stores data across multiple related tables</li>
+          <li>Core SQL commands to know: <code>SELECT</code>, <code>INSERT INTO</code>, <code>UPDATE</code>, <code>DELETE</code>, <code>CREATE TABLE</code>, <code>DROP TABLE</code></li>
+          <li><code>ORDER BY</code> sorts results; <code>WHERE</code> filters rows; forgetting <code>WHERE</code> on <code>UPDATE</code> or <code>DELETE</code> affects all rows</li>
+        </ul>
+
+        <button class="done-btn" id="done-dbconcepts" onclick="markDone('dbconcepts')">
+          <div class="done-circle" id="dc-dbconcepts"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
   </section>
 
   <div class="spacer"></div>
@@ -1081,6 +1388,62 @@
 
         <button class="done-btn" id="done-mysql" onclick="markDone('mysql')">
           <div class="done-circle" id="dc-mysql"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+
+
+    <!-- Topic: DOM -->
+    <div class="topic" id="t-dom">
+      <div class="topic-head" onclick="toggle('dom')">
+        <div class="topic-left">
+          <span class="topic-num">20</span>
+          <span class="topic-icon">🧭</span>
+          <span class="topic-name">DOM Concepts &amp; Partial Page Updates</span>
+        </div>
+        <span class="topic-tag">dom</span>
+        <span class="topic-chevron" id="chev-dom">▾</span>
+      </div>
+      <div class="topic-body" id="body-dom">
+
+        <ul class="kp-list">
+          <li>DOM = <strong>Document Object Model</strong></li>
+          <li>The DOM lets JavaScript treat a webpage as a hierarchy of objects</li>
+          <li>Useful DOM features from lecture: <code>attributes</code>, <code>children</code>, <code>innerHTML</code>, <code>hasAttribute()</code>, <code>appendChild()</code></li>
+          <li>Web 2.0 uses the DOM so only parts of the page are updated instead of reloading the whole page</li>
+          <li>This is called the <strong>partial screen update</strong> model</li>
+        </ul>
+
+        <button class="done-btn" id="done-dom" onclick="markDone('dom')">
+          <div class="done-circle" id="dc-dom"></div>Mark as reviewed
+        </button>
+      </div>
+    </div>
+
+    <!-- Topic: XML details -->
+    <div class="topic" id="t-xmldetails">
+      <div class="topic-head" onclick="toggle('xmldetails')">
+        <div class="topic-left">
+          <span class="topic-num">21</span>
+          <span class="topic-icon">🧾</span>
+          <span class="topic-name">XML Rules, DTD &amp; WSDL</span>
+        </div>
+        <span class="topic-tag">xml</span>
+        <span class="topic-chevron" id="chev-xmldetails">▾</span>
+      </div>
+      <div class="topic-body" id="body-xmldetails">
+
+        <ul class="kp-list">
+          <li>XML documents must be <strong>well-formed</strong>: one root element, correct nesting, quoted attributes, matching opening/closing tags</li>
+          <li>XML tags are <strong>case-sensitive</strong></li>
+          <li>A <strong>DTD</strong> defines valid structure for an XML document</li>
+          <li><strong>WSDL</strong> = Web Services Description Language — an XML-based contract describing a SOAP web service</li>
+          <li>JSON is lighter than XML and is the mainstream format used in modern web apps and in this course's AJAX examples</li>
+        </ul>
+
+        <button class="done-btn" id="done-xmldetails" onclick="markDone('xmldetails')">
+          <div class="done-circle" id="dc-xmldetails"></div>Mark as reviewed
         </button>
       </div>
     </div>
